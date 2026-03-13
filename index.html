@@ -1,12 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kutyavilág</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f7f4ef;
+    }
+
+    header {
+      background: linear-gradient(135deg, #8b5e3c, #c68b59);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #8b5e3c;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #f2e3d4;
+    }
+
+    nav {
+      background: #5b3a29;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #5b3a29;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      color: #555;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #5b3a29;
+    }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-box {
+      background: #fff;
+      padding: 24px;
+      border-left: 6px solid #c68b59;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    }
+
+    .contact {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      border: none;
+      background: #8b5e3c;
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #6f482e;
+    }
+
+    footer {
+      background: #5b3a29;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+  <nav>
+    <ul>
+      <li><a href="#fajtak">Fajták</a></li>
+      <li><a href="#gondozas">Gondozás</a></li>
+      <li><a href="#galeria">Galéria</a></li>
+      <li><a href="#kapcsolat">Kapcsolat</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Kutyavilág</h1>
+    <p>Fedezd fel a kutyák csodálatos világát: népszerű fajták, hasznos gondozási tippek és sok aranyos fotó egy modern, letisztult weboldalon.</p>
+    <a class="btn" href="#fajtak">Megnézem</a>
+  </header>
+
+  <main>
+    <section id="fajtak" class="container">
+      <h2 class="section-title">Népszerű kutyafajták</h2>
+      <p class="section-text">Minden kutya különleges, de néhány fajta különösen népszerű barátságos természetük, intelligenciájuk és hűségük miatt.</p>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="Golden retriever" />
+          <div class="card-content">
+            <h3>Golden Retriever</h3>
+            <p>Barátságos, intelligens és kiváló családi kutya. Könnyen tanítható és nagyon ragaszkodó.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=900&q=80" alt="Francia bulldog" />
+          <div class="card-content">
+            <h3>Francia Bulldog</h3>
+            <p>Kis termetű, játékos és lakásban is jól tartható fajta. Igazi szeretetgombóc.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=900&q=80" alt="Német juhászkutya" />
+          <div class="card-content">
+            <h3>Német Juhászkutya</h3>
+            <p>Hűséges, bátor és rendkívül okos. Kiváló munkakutya és családi társ egyaránt.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gondozas" class="container">
+      <h2 class="section-title">Hasznos gondozási tippek</h2>
+      <p class="section-text">A boldog és egészséges kutya titka a rendszeres törődés, a megfelelő táplálás és a sok szeretet.</p>
+
+      <div class="tips">
+        <div class="tip-box">
+          <h3>Megfelelő etetés</h3>
+          <p>Mindig a kutya korának, méretének és aktivitásának megfelelő tápot válassz, és biztosíts friss vizet egész nap.</p>
+        </div>
+
+        <div class="tip-box">
+          <h3>Mindennapi mozgás</h3>
+          <p>A rendszeres séta és játék elengedhetetlen a testi és mentális egészséghez. Egy fáradt kutya általában boldog kutya.</p>
+        </div>
+
+        <div class="tip-box">
+          <h3>Ápolás és figyelem</h3>
+          <p>A szőrzet ápolása, az állatorvosi ellenőrzés és a szeretetteljes odafigyelés hosszú, kiegyensúlyozott életet biztosíthat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="container">
+      <h2 class="section-title">Kutyás galéria</h2>
+      <p class="section-text">Néhány kedves pillanat, ami jól mutatja, mennyi örömöt hoznak a kutyák a mindennapokba.</p>
+
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" alt="Mosolygó kutya" />
+        <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=900&q=80" alt="Kiskutya a fűben" />
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Futó kutya" />
+        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=900&q=80" alt="Pihenő kutya" />
+      </div>
+    </section>
+
+    <section id="kapcsolat" class="container">
+      <h2 class="section-title">Kapcsolat</h2>
+      <p class="section-text">Van kedvenc kutyafajtád vagy kérdésed a kutyatartással kapcsolatban? Írj nekünk.</p>
+
+      <div class="contact">
+        <form>
+          <input type="text" placeholder="Neved" required />
+          <input type="email" placeholder="Email címed" required />
+          <textarea rows="5" placeholder="Üzeneted" required></textarea>
+          <button type="submit">Üzenet küldése</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Kutyavilág — Minden jog fenntartva.</p>
+  </footer>
 </body>
 </html>
